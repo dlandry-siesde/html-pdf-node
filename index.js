@@ -20,7 +20,6 @@ async function generatePdf(file, options, callback) {
   const page = await browser.newPage();
 
   if(file.content) {
-    console.log("Compiling the template with handlebars")
     // we have compile our code with handlebars
     const template = hb.compile(file.content, { strict: true });
     const result = template(file.content);
@@ -61,7 +60,6 @@ async function generatePdfs(files, options, callback) {
   const page = await browser.newPage();
   for(let file of files) {
     if(file.content) {
-      console.log("Compiling the template with handlebars")
       // we have compile our code with handlebars
       const template = hb.compile(file.content, { strict: true });
       const result = template(file.content);
